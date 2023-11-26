@@ -74,7 +74,6 @@ def main3():
     turtle.done()
 
 
-
 def curve_Minkovskiy(order, size):
 
     turtle.speed(0)
