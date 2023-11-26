@@ -32,6 +32,25 @@ def main1():
     square(0, 0, 0, 100)
     turtle.done()
 
+def tree(depth, corner):
+  if depth > 0:
+    turtle.left(corner)
+    turtle.forward(depth*30)
+    tree(depth - 1, corner)
+    turtle.backward(depth*30)
+    turtle.right(corner*2)
+    turtle.forward(depth*30)
+    tree(depth - 1, corner)
+    turtle.backward(depth*30)
+    turtle.left(corner)
+
+def main2():
+    depth = int(input('Глубина рекурсии: '))
+    corner = int(input('Угол: '))
+    turtle.left(90)
+    turtle.forward(depth * 30)
+    tree(depth, corner)
+
 
 def color_branch(order, size):
 
@@ -73,6 +92,24 @@ def main3():
     color_branch(5, 2000)
     turtle.done()
 
+def koch(order, size):
+    if order == 0:
+        turtle.forward(size)
+    else:
+        koch(order-1, size/3)
+        turtle.left(60)
+        koch(order-1, size/3)
+        turtle.right(120)
+        koch(order-1, size/3)
+        turtle.left(60)
+        koch(order-1, size/3)
+def main5():
+    n = int(input('Глубина рекурсии: '))
+    a = int(input('Длина стороны: '))
+
+    for i in range(3):
+        koch(n, a)
+        turtle.right(120)
 
 def curve_Minkovskiy(order, size):
 
@@ -110,6 +147,21 @@ def main6():
     curve_Minkovskiy(n, a)
     turtle.done()
 
+def ice(order, size):
+    if order == 0:
+        turtle.forward(size)
+    else:
+        ice(order-1, size/2)
+        turtle.left(90)
+        ice(order-1, size/4)
+        turtle.left(180)
+        ice(order-1, size/4)
+        turtle.left(90)
+        ice(order-1, size/2)
+def main7():
+    order = int(input('Глубина рекурсии: '))
+    size = int(input('Длина стороны: '))
+    ice(order, size)
 
 def ice_fractal2(order, size):
 
@@ -144,6 +196,19 @@ def main8():
 
     turtle.done()
 
+def levi(order, size):
+    if order == 0:
+        turtle.forward(size)
+    else:
+        turtle.left(45)
+        levi(order-1, size)
+        turtle.right(90)
+        levi(order-1, size)
+        turtle.left(45)
+def main9():
+    order = int(input('Глубина рекурсии: '))
+    size = int(input('Длина стороны: '))
+    levi(order, size)
 
 def vertushka(order, size):
 
@@ -175,32 +240,67 @@ def main10():
 
     turtle.done()
 
+def fract_circle(x, y, radius, order):
+    if order>0:
+        turtle.up()
+        turtle.goto(x, y)
+        turtle.down()
+        turtle.circle(radius)
+        new_radius = radius//2
+        fract_circle(x - radius, y+radius-new_radius, new_radius, order - 1)
+        fract_circle(x + radius, y+radius-new_radius, new_radius, order - 1)
+        fract_circle(x, y - new_radius, new_radius, order - 1)
+        fract_circle(x, y + new_radius + radius, new_radius, order - 1)
+def main11():
+    order = int(input('Глубина рекурсии: '))
+    radius = int(input('Радиус: '))
+    fract_circle(0, 0, order, radius)
 
 def main():
 
     print('Меню\n'
           '1 - Убегающий квадрат\n'
+          '2 - Двоичное дерево\n'
           '3 - Фрактал "Ветка"\n'
+          '5 - Снежинка Коха\n'
           '6 - Кривая Минковского\n'
+          '7 - Ледяной фрактал 1'
           '8 - Ледяной фрактал 2\n'
-          '10 - Фрактал "Вертушка"')
+          '9 - Кривая Леви\n'
+          '10 - Фрактал "Вертушка"\n'
+          '11 - Фрактал с кругами')
 
     number = int(input("Пожалуйста выберите число: "))
 
     if number == 1:
         main1()
 
+    if number == 2:
+        main2()
+
     elif number == 3:
         main3()
+
+    elif number == 5:
+        main5()
 
     elif number == 6:
         main6()
 
+    elif number == 7:
+        main7()
+
     elif number == 8:
         main8()
 
+    elif number == 9:
+        main9()
+
     elif number == 10:
         main10()
+
+    elif number == 11:
+        main11()
 
 
 if __name__ == '__main__':
