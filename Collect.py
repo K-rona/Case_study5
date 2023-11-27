@@ -32,6 +32,7 @@ def main1():
     square(0, 0, 0, 100)
     turtle.done()
 
+
 def tree(depth, corner):
   if depth > 0:
     turtle.left(corner)
@@ -44,12 +45,15 @@ def tree(depth, corner):
     turtle.backward(depth*30)
     turtle.left(corner)
 
+
 def main2():
     depth = int(input('Глубина рекурсии: '))
     corner = int(input('Угол: '))
     turtle.left(90)
     turtle.forward(depth * 30)
     tree(depth, corner)
+    turtle.done()
+
 
 def color_branch(order, size):
 
