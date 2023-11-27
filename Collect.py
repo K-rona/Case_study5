@@ -113,6 +113,8 @@ def main5():
         koch(n, a)
         turtle.right(120)
 
+    turtle.done()
+
 
 def curve_Minkovskiy(order, size):
 
@@ -250,6 +252,7 @@ def main10():
     vertushka(n, a)
 
     turtle.done()
+
 
 def fract_circle(x, y, radius, order):
     if order>0:
