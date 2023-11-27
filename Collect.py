@@ -225,6 +225,7 @@ def main9():
     order = int(input('Глубина рекурсии: '))
     size = int(input('Длина стороны: '))
     levi(order, size)
+    turtle.done()
 
 
 def vertushka(order, size):
