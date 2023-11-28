@@ -100,13 +100,13 @@ def koch(order, size):
     if order == 0:
         turtle.forward(size)
     else:
-        koch(order-1, size/3)
+        koch(order-1, size / 3)
         turtle.left(60)
-        koch(order-1, size/3)
+        koch(order-1, size / 3)
         turtle.right(120)
-        koch(order-1, size/3)
+        koch(order-1, size / 3)
         turtle.left(60)
-        koch(order-1, size/3)
+        koch(order-1, size / 3)
 
 
 def main5():
@@ -161,13 +161,13 @@ def ice(order, size):
     if order == 0:
         turtle.forward(size)
     else:
-        ice(order-1, size/2)
+        ice(order-1, size / 2)
         turtle.left(90)
-        ice(order-1, size/4)
+        ice(order-1, size / 4)
         turtle.left(180)
-        ice(order-1, size/4)
+        ice(order-1, size / 4)
         turtle.left(90)
-        ice(order-1, size/2)
+        ice(order-1, size / 2)
 
 
 def main7():
@@ -184,9 +184,9 @@ def ice_fractal2(order, size):
         turtle.fd(size)
 
     else:
-        ice_fractal2(order - 1, size/2)
+        ice_fractal2(order - 1, size / 2)
         turtle.lt(120)
-        ice_fractal2(order - 1, size/4)
+        ice_fractal2(order - 1, size / 4)
         turtle.rt(180)
         ice_fractal2(order - 1, size / 4)
         turtle.lt(120)
