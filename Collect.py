@@ -34,6 +34,9 @@ def main1():
 
 
 def tree(depth, corner):
+    turtle.colormode(255)
+    cg = 255 - int(depth * (250/6)) % 255
+    turtle.color(0, cg, 0)
   if depth > 0:
     turtle.left(corner)
     turtle.forward(depth*30)
